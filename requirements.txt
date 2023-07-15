@@ -6,8 +6,6 @@ nltk==3.6.2
 textblob==0.15.3
 SpeechRecognition==3.8.1
 langdetect==1.0.9
-opencv-python==4.5.3
-opencv-python-headless==4.5.3
 fer==20.0.1
 scipy==1.7.0
 twilio==6.63.1
