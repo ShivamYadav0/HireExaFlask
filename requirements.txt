@@ -10,3 +10,4 @@ fer
 scipy
 twilio
 gunicorn
+tensorflow
