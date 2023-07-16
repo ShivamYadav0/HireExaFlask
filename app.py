@@ -11,6 +11,7 @@ import os
 from fer import FER
 from scipy.io import wavfile
 from twilio.rest import Client
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
 
@@ -20,7 +21,7 @@ CORS(app, support_credentials=True)
 @app.route('/upload', methods=['POST'])
 def upload():
     video = request.files['file']
-    video.save(video.filename)
+    #video.save(video.filename)
 
     filename = video.filename
 
@@ -40,7 +41,7 @@ def upload():
     print(text)
 
     # Perform sentiment analysis
-    from nltk.sentiment import SentimentIntensityAnalyzer
+  
     analyzer = SentimentIntensityAnalyzer()
     sentiment_scores = analyzer.polarity_scores(text)
     print("Sentiment score is: ", sentiment_scores)
