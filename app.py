@@ -103,8 +103,11 @@ def upload():
                 break
 
         # Release all space and windows once done
+        print('Done.')
+
         cam.release()
-        cv2.destroyAllWindows()
+        #cv2.destroyAllWindows()
+        print('Destroyed')
 
         return int(currentframe / 14 - 1)
 
