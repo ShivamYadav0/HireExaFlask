@@ -21,7 +21,7 @@ CORS(app, support_credentials=True)
 @app.route('/upload', methods=['POST'])
 def upload():
     video = request.files['file']
-    #video.save(video.filename)
+    video.save(video.filename)
 
     filename = video.filename
 
