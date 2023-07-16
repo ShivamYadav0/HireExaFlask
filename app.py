@@ -115,16 +115,15 @@ def upload():
 
     # Detect emotions in frames
     def detect_emotion(frame_path):
-        try:   
-             input_image = cv2.imread(frame_path)
-             emotion_detector = FER()
-             emotions = emotion_detector.detect_emotions(input_image)[0]["emotions"]
-             print(emotions)
-             return emotions
-   
+        try:
+            input_image = cv2.imread(frame_path)
+            emotion_detector = FER()
+            emotions = emotion_detector.detect_emotions(input_image)[0]["emotions"]
+            print(emotions)
+            return emotions
         except:
-              print('Error.. Analyzing next frame')
-              return {}
+            print('Error.. Analyzing next frame')
+            return {}         
     
     emotions = {
         "angry": 0,
