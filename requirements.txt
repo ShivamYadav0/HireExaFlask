@@ -1,6 +1,6 @@
 Flask
+flask
 flask_cors
-numpy
 moviepy
 nltk
 textblob
@@ -8,6 +8,5 @@ SpeechRecognition
 langdetect
 fer
 scipy
-twilio
 gunicorn
 tensorflow
