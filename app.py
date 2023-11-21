@@ -19,20 +19,21 @@ CORS(app, support_credentials=True)
 @app.route('/upload', methods=['POST'])
 def upload():
     video = request.files['file']
-    video.save(video.filename)
-
-    filename = video.filename
+    video_content = video_file.read()
+    video_bytes = BytesIO(video_content)
 
     # Extract audio from video
-    vid = mp.VideoFileClip(filename)
+    vid = mp.VideoFileClip(video_bytes)
     audio = vid.audio
-    audio_file_name_without_ext = filename.split('.mp4')[0]
-    audio_file_name = "{}.wav".format(audio_file_name_without_ext)
-    audio.write_audiofile(audio_file_name)
+    audio_file_bytes = BytesIO()
+    audio.write_audiofile(audio_file_bytes, codec='wav')
+
+    # Reset the BytesIO object to read from the beginning
+    audio_file_bytes.seek(0)
 
     # Convert audio to text
     recognizer = sr.Recognizer()
-    audioFile = sr.AudioFile(audio_file_name)
+    audioFile = sr.AudioFile(audio_file_bytes)
     with audioFile as source:
         data = recognizer.record(source)
     text = recognizer.recognize_google(data, key=None)
