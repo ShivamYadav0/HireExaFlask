@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import numpy as np
 import moviepy.editor as mp
 import nltk
 from textblob import TextBlob
@@ -10,7 +9,6 @@ import cv2
 import os
 from fer import FER
 from scipy.io import wavfile
-from twilio.rest import Client
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
