@@ -19,6 +19,7 @@ CORS(app, support_credentials=True)
 @app.route('/upload', methods=['POST'])
 def upload():
     video = request.files['file']
+    video_file= request.files['file']
     video_content = video_file.read()
     video_bytes = BytesIO(video_content)
 
