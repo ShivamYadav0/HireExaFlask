@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from io import BytesIO
 import moviepy.editor as mp
 import nltk
 from textblob import TextBlob
