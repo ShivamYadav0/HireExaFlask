@@ -1,6 +1,7 @@
 Flask
 flask
 flask_cors
+io
 moviepy
 nltk
 textblob
